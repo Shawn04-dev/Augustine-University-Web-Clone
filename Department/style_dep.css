@@ -44,7 +44,7 @@ body {
   color: var(--text);
 }
 
-/* Dropdown hover bridge - keeps menu visible when moving mouse to it */
+/* Dropdown hover bridge */
 .navbar-links li.dropdown-parent::before {
   content: "";
   position: absolute;
@@ -73,10 +73,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
-  transition:
-    opacity 0.2s,
-    visibility 0.2s,
-    transform 0.2s;
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
   z-index: 50;
 }
 
@@ -92,10 +89,7 @@ body {
   color: var(--text);
   text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
-  transition:
-    background 0.15s,
-    color 0.15s;
+  transition: background 0.15s, color 0.15s;
   border: none;
 }
 
@@ -111,17 +105,17 @@ body {
   background: rgba(139, 0, 0, 0.08);
   color: var(--red);
 }
-/* ── PILL NAVBAR ── */
 
+/* ── PILL NAVBAR ── */
 .navbar-wrap {
   position: fixed;
-  top: 46px;
+  top: 16px;
   left: 0;
   right: 0;
   z-index: 800;
   display: flex;
   justify-content: center;
-  padding: 0 24px;
+  padding: 0 16px;
 }
 .navbar {
   background: var(--white);
@@ -172,155 +166,333 @@ body {
   color: var(--red);
 }
 
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 900;
+}
+.mobile-menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--text);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
 .fade-in-on-scroll {
   opacity: 0;
   transform: translateY(30px);
-  transition:
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .fade-in-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.staff-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
-  align-items: start;
-  margin-top: 2rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  padding-bottom: 0.5rem;
-  -webkit-overflow-scrolling: touch;
+@layer base, demo;
+
+@layer demo {
+  .carousel {
+    --nav-btn-size: 40px;
+    --nav-btn-bg: #6e0000;
+    --nav-btn-txt: white;
+    --nav-marker-bg: #6e0000;
+    
+    width: 1100px;
+    max-width: 100%;
+    list-style: none;
+    padding-block: 2rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 280px; 
+    gap: 2.5rem;
+    @supports not selector(::scroll-marker-group) {
+      gap: 1rem;
+    }
+    anchor-name: --carousel;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::before,
+    &::after {
+      content: '';
+    }
+    
+    /**************** MARKERS GROUP (Little Circles Underneath) *******************/
+    scroll-marker-group: after;
+    &::scroll-marker-group {
+      position: absolute;
+      position-anchor: --carousel;
+      inline-size: min(90cqi, 400px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+      gap: .35rem;
+      padding-block-start: 1rem;
+      top: anchor( bottom );
+      left: calc(anchor(left) - 10%);
+      right: calc(anchor(right) - 10%);
+    }
+
+    /* carousel item (.staff-card) */
+    > .staff-card {
+      position: relative;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+      container-type: scroll-state;
+       
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      overflow: hidden;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &.scroll-start {
+        scroll-initial-target: nearest;
+      }
+
+      /* Inner box and content container query zoom-in/out effect */
+      > .staff-inner-box {
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 1rem;
+        background: #fafafa;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        transition: all 300ms ease-in-out;
+
+        @container not scroll-state(snapped: inline) {
+          scale: .85;
+          opacity: .6;
+        }
+
+        img {
+          width: 100%;
+          aspect-ratio: 1/1;
+          object-fit: cover;
+          border-radius: 14px;
+          display: block;
+          transition: transform 300ms ease-in-out;
+        }
+
+        h2, h3 {
+          font-weight: 700;
+          font-size: 1.05rem;
+          color: var(--text);
+          margin: 0;
+          letter-spacing: 0.03em;
+          transition: all 300ms ease-in-out;
+
+          @container not scroll-state(snapped: inline) {
+            translate: 0 -10px;
+          }
+        }
+
+        p {
+          font-weight: 600;
+          font-size: 0.85rem;
+          color: #6b7280;
+          margin: 0;
+          letter-spacing: 0.02em;
+          transition: all 300ms ease-in-out;
+        }
+      }
+
+      /************** MARKERS (Circles) **************/
+      &::scroll-marker {
+        content: ' ';
+        height: 12px;
+        aspect-ratio: 1;
+        background-color: var(--nav-marker-bg);
+        border-radius: 50%;
+        transition: 150ms ease-in-out;
+        scale: .75;
+        opacity: .3;
+        cursor: pointer;
+      }
+      &::scroll-marker:target-current {
+        opacity: 1;
+        scale: 1;
+      }
+      &::scroll-marker:where(:hover, :focus-visible) {
+        opacity: 1;
+      }
+    }
+  }
+
+  @layer base {
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  .navbar-links .dropdown-parent > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    font-weight: 700;
+  }
+
+  .navbar-links .dropdown-parent:hover > a::after {
+    transform: translateY(1px);
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .navbar-links li.dropdown-parent::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    right: -20px;
+    height: 12px;
+    pointer-events: auto;
+  }
+  
+  .banner {
+    width: 100%;
+    height: 16rem;
+    overflow: hidden;
+    border-top: 4px solid #D4AF37;
+    border-bottom: 4px solid #D4AF37;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 }
 
-.staff-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 24px;
-  overflow: hidden;
-  text-align: center;
-  padding: 0.85rem;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.staff-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-}
-
-.staff-card img {
+/* ── DESKTOP ARROW CONTROLS ── */
+.carousel-wrapper {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 20px;
-  display: block;
 }
 
-.staff-card h3 {
-  margin: 0.85rem 0 0.15rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.01em;
-}
-
-.staff-card p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #6b7280;
-}
-
-.staff-card .view-profile-btn {
-  display: inline-block;
-  margin-top: 0.75rem;
-  padding: 0.5rem 1rem;
-  background: var(--red);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition:
-    background 0.2s ease,
-    transform 0.15s ease;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.staff-card .view-profile-btn:hover {
-  background: var(--red-dark);
-  transform: translateY(-2px);
-}
-
-.staff-carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-@media (max-width: 1024px) {
-  .staff-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .staff-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.navbar-links .dropdown-parent > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  position: relative;
-  font-weight: 700;
-}
-
-.navbar-links .dropdown-parent > a::after {
-  content: "▼";
-  font-size: 10px;
-  color: var(--text);
-  transition: transform 0.2s ease;
-}
-
-.navbar-links .dropdown-parent:hover > a::after {
-  transform: translateY(1px);
-}
-.dropdown-menu a {
-  display: block;
-  padding: 12px 16px;
-  color: var(--text);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 10000;
-  transition:
-    background 0.15s,
-    color 0.15s;
-  font-style: bold;
-  text-emphasis-color: var(--grey-bg);
-}
-
-/* Dropdown hover bridge - keeps menu visible when moving mouse to it */
-.navbar-links li.dropdown-parent::before {
-  content: "";
+.carousel-arrow {
+  display: none;
   position: absolute;
-  top: 100%;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #800020;
+  color: #ffffff;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background: #9c1837;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow-left {
   left: -20px;
+}
+
+.carousel-arrow-right {
   right: -20px;
-  height: 12px;
-  pointer-events: auto;
+}
+
+/* ══════════════════════════════════════════
+   DEVICE-SPECIFIC MEDIA QUERIES
+   ══════════════════════════════════════════ */
+
+/* PC & Large Monitor Screens (Width >= 1025px): Show Desktop Arrows */
+@media screen and (min-width: 1025px) {
+  .carousel-arrow {
+    display: flex;
+  }
+}
+
+/* Mobile Devices & Tablets (Width <= 1024px): Touch-Swipe Only, Hide Arrows */
+@media screen and (max-width: 1024px) {
+  .carousel-arrow {
+    display: none !important;
+  }
+
+  .navbar-wrap {
+    top: 12px;
+    padding: 0 12px;
+  }
+  .navbar {
+    padding: 10px 20px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--white);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 20px 20px;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .navbar-links.active {
+    display: flex;
+  }
+  .navbar-links .dropdown-menu {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding-left: 15px;
+    margin-top: 8px;
+    width: 100%;
+    background: transparent;
+  }
+  .banner {
+    height: 12rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-brand span {
+    font-size: 18px;
+  }
+  .navbar-brand img {
+    width: 38px;
+    height: 38px;
+  }
 }

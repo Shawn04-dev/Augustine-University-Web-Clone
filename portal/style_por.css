@@ -1,0 +1,224 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red: #800020;
+  --red-dark: #6a001a;
+  --gold: #D4AF37;
+  --grey-bg: #f9fafb;
+  --text: #2d2d2d;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── PILL NAVBAR ── */
+.navbar-wrap {
+  position: fixed;
+  top: 16px;
+  left: 0;
+  right: 0;
+  z-index: 800;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+.navbar {
+  background: var(--white);
+  border-radius: 999px;
+  padding: 8px 28px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.13);
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+  margin-right: auto;
+}
+.navbar-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.navbar-brand span {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.navbar-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.2s;
+}
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--red);
+}
+
+/* Dropdown Menu */
+.navbar-links .dropdown-parent {
+  position: relative;
+}
+.navbar-links .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  width: 220px;
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  z-index: 50;
+}
+.navbar-links .dropdown-parent:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.navbar-links .dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+}
+.navbar-links .dropdown-menu a:first-child {
+  border-radius: 11px 11px 0 0;
+}
+.navbar-links .dropdown-menu a:last-child {
+  border-radius: 0 0 11px 11px;
+}
+.navbar-links .dropdown-menu a:hover {
+  background: rgba(128, 0, 32, 0.05);
+  color: var(--red);
+}
+
+/* Hover bridge */
+.navbar-links li.dropdown-parent::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  right: -20px;
+  height: 12px;
+  pointer-events: auto;
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 900;
+}
+.mobile-menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Bookshelf Banner */
+.book-shelf-gradient {
+  background: linear-gradient(180deg, #372115 0%, #1e110a 100%);
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE MEDIA QUERIES FOR DEVICES
+   ══════════════════════════════════════════ */
+
+@media screen and (max-width: 768px) {
+  .navbar-wrap {
+    top: 12px;
+    padding: 0 12px;
+  }
+  .navbar {
+    padding: 10px 18px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--white);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 20px 20px;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .navbar-links.active {
+    display: flex;
+  }
+  .navbar-links .dropdown-menu {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding-left: 12px;
+    margin-top: 6px;
+    width: 100%;
+    background: transparent;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-brand span {
+    font-size: 15px;
+  }
+  .navbar-brand img {
+    width: 34px;
+    height: 34px;
+  }
+}

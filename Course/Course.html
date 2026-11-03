@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Course/style_cou.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <title>Courses - Augustine University</title>
+</head>
+<body class="courses-body">
+  
+  <!-- Pill navbar -->
+      <div class="navbar-wrap">
+          <nav class="navbar">
+            <a href="index.html" class="navbar-brand">
+              <img src="Augustine.university.logo.png" alt="AUI Crest" />
+              <span>AUI</span>
+            </a>
+
+            <!-- Mobile menu toggle button -->
+            <button id="mobile-menu-toggle-btn" class="mobile-menu-toggle md:hidden" aria-label="Toggle navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <ul class="navbar-links" id="navbarLinks">
+              <li><a href="/Home/Home.html">Home</a></li>
+              <li><a href="/About/About.html">About</a></li>
+              <li class="dropdown-parent">
+                <a href="#" class="active" onclick="return false">Department</a>
+                <div class="dropdown-menu">
+                  <a href="/Department/Department.html">Staff</a>
+                  <a href="/Course/Course.html">Courses</a>
+                </div>
+              </li>
+              <li>
+                <a href="/portal/portal.html">Student Portal</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+<!-- Main Content Container -->
+    <main class="courses-main-container">
+      
+      <!-- Header -->
+      <header class="courses-header">
+        <p class="courses-subtitle">ACADEMIC OFFERINGS</p>
+        <h1 class="courses-title">Department Courses</h1>
+        <p class="courses-description">Filter courses by academic level or search directly by course code and title.</p>
+      </header>
+
+      <!-- Controls: Search & Level Tabs -->
+      <section class="courses-controls">
+        
+        <!-- Live Search Input -->
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input 
+            type="text" 
+            id="courseSearch" 
+            placeholder="Search Courses" 
+            class="course-search-input"
+          />
+        </div>
+
+        <!-- Level Filter Tabs -->
+        <div class="level-tabs" id="levelTabs">
+          <button data-level="all" class="tab-btn active">All Levels</button>
+          <button data-level="100" class="tab-btn">100 Level</button>
+          <button data-level="200" class="tab-btn">200 Level</button>
+          <button data-level="300" class="tab-btn">300 Level</button>
+          <button data-level="400" class="tab-btn">400 Level</button>
+        </div>
+
+      </section>
+
+      <!-- Courses Grid -->
+      <section id="courseGrid" class="courses-grid">
+        
+        <!-- 100 Level Course -->
+        <article class="course-card" data-level="100" data-keywords="csc 101 introduction to computer science programming python">
+          <div class="course-card-header">
+            <span class="course-code-badge">CSC 101</span>
+            <span class="course-units">3 Units</span>
+          </div>
+          <h3 class="course-title">Introduction to Computer Science</h3>
+          <p class="course-body-text">Basic computer hardware concepts, problem-solving techniques, and introductory programming logic.</p>
+          <div class="course-card-footer">
+            <span>Level: 100L</span>
+            <span>Status: Compulsory</span>
+          </div>
+        </article>
+
+        <!-- 200 Level Course -->
+        <article class="course-card" data-level="200" data-keywords="csc 201 data structures algorithms c++ java arrays lists">
+          <div class="course-card-header">
+            <span class="course-code-badge">CSC 201</span>
+            <span class="course-units">3 Units</span>
+          </div>
+          <h3 class="course-title">Data Structures & Algorithms</h3>
+          <p class="course-body-text">Linear data structures, trees, stacks, queues, hash tables, and foundational sorting algorithms.</p>
+          <div class="course-card-footer">
+            <span>Level: 200L</span>
+            <span>Status: Compulsory</span>
+          </div>
+        </article>
+
+        <!-- 300 Level Course -->
+        <article class="course-card" data-level="300" data-keywords="csc 301 database design sql relational systems er diagrams">
+          <div class="course-card-header">
+            <span class="course-code-badge">CSC 301</span>
+            <span class="course-units">3 Units</span>
+          </div>
+          <h3 class="course-title">Database Design & Management</h3>
+          <p class="course-body-text">Relational database systems, entity-relationship modeling, SQL syntax, and normalization principles.</p>
+          <div class="course-card-footer">
+            <span>Level: 300L</span>
+            <span>Status: Compulsory</span>
+          </div>
+        </article>
+
+        <!-- 300 Level Course -->
+        <article class="course-card" data-level="300" data-keywords="csc 309 object oriented programming c# .net java software architecture">
+          <div class="course-card-header">
+            <span class="course-code-badge">CSC 309</span>
+            <span class="course-units">3 Units</span>
+          </div>
+          <h3 class="course-title">Object-Oriented Programming</h3>
+          <p class="course-body-text">Encapsulation, inheritance, polymorphism, design patterns, and application design using C# / Java.</p>
+          <div class="course-card-footer">
+            <span>Level: 300L</span>
+            <span>Status: Compulsory</span>
+          </div>
+        </article>
+
+        <!-- 400 Level Course -->
+        <article class="course-card" data-level="400" data-keywords="csc 401 artificial intelligence machine learning neural networks search">
+          <div class="course-card-header">
+            <span class="course-code-badge">CSC 401</span>
+            <span class="course-units">3 Units</span>
+          </div>
+          <h3 class="course-title">Artificial Intelligence</h3>
+          <p class="course-body-text">Heuristic search strategies, knowledge representation, introductory machine learning models, and NLP.</p>
+          <div class="course-card-footer">
+            <span>Level: 400L</span>
+            <span>Status: Compulsory</span>
+          </div>
+        </article>
+
+        <!-- 400 Level Course -->
+        <article class="course-card" data-level="400" data-keywords="csc 405 software engineering agile devops testing security">
+          <div class="course-card-header">
+            <span class="course-code-badge">CSC 405</span>
+            <span class="course-units">3 Units</span>
+          </div>
+          <h3 class="course-title">Software Engineering Principles</h3>
+          <p class="course-body-text">Agile methodologies, software lifecycles, project management, automated testing, and CI/CD pipelines.</p>
+          <div class="course-card-footer">
+            <span>Level: 400L</span>
+            <span>Status: Compulsory</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- No Results Message -->
+      <div id="noResults" class="no-results hidden">
+        <i class="fa-solid fa-folder-open no-results-icon"></i>
+        <p class="no-results-text">No courses matching your search criteria.</p>
+      </div>
+
+    </main>
+
+    <!-- BOOKSHELF SEPARATOR IMAGE BANNER -->
+    <div
+      class="banner h-24 book-shelf-gradient relative flex items-center overflow-hidden border-t-4 border-b-4 border-brand-gold shadow-inner mt-12 w-full"
+    >
+      <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&q=80" alt="Augustine University Library" class="w-full h-full object-cover">
+    </div>
+    
+    <!-- CLEAN FOOTER -->
+    <footer class="w-full bg-[#f9fafb] border-t border-gray-200 py-8 text-gray-500">
+      <div
+        class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs"
+      >
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 p-0.5 flex items-center justify-center">
+            <img src="Augustine.university.logo.png" alt="AUI Logo" class="w-full h-full object-contain" />
+          </div>
+          <p class="font-medium text-center md:text-left">
+            &copy; 2026 Augustine University Ilara-Epe. All rights reserved.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 font-medium">
+          <a href="#" class="hover:text-brand-crimson transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-brand-crimson transition-colors">Privacy Policy</a>
+          <a href="#courseSearch" class="hover:text-brand-crimson transition-colors">Admissions Desk</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Filter & Mobile Menu Engine -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Mobile Menu Toggle Logic
+        const mobileMenuToggleBtn = document.getElementById("mobile-menu-toggle-btn");
+        const navbarLinks = document.getElementById("navbarLinks");
+
+        if (mobileMenuToggleBtn && navbarLinks) {
+          mobileMenuToggleBtn.addEventListener("click", () => {
+            navbarLinks.classList.toggle("active");
+            mobileMenuToggleBtn.classList.toggle("open");
+          });
+        }
+
+        // Course Filter Logic
+        const searchInput = document.getElementById("courseSearch");
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        const courseCards = document.querySelectorAll(".course-card");
+        const noResults = document.getElementById("noResults");
+
+        let activeLevel = "all";
+        let searchQuery = "";
+
+        // Tab Switching Handler
+        tabBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            tabBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            activeLevel = btn.getAttribute("data-level");
+            filterCourses();
+          });
+        });
+
+        // Search Input Handler
+        searchInput.addEventListener("input", (e) => {
+          searchQuery = e.target.value.toLowerCase().trim();
+          filterCourses();
+        });
+
+        // Filter Logic
+        function filterCourses() {
+          let visibleCount = 0;
+
+          courseCards.forEach(card => {
+            const cardLevel = card.getAttribute("data-level");
+            const keywords = card.getAttribute("data-keywords");
+
+            const matchesLevel = (activeLevel === "all" || cardLevel === activeLevel);
+            const matchesSearch = (searchQuery === "" || keywords.includes(searchQuery));
+
+            if (matchesLevel && matchesSearch) {
+              card.classList.remove("hidden");
+              visibleCount++;
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+
+          if (visibleCount === 0) {
+            noResults.classList.remove("hidden");
+          } else {
+            noResults.classList.add("hidden");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

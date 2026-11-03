@@ -5,41 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Augustine University</title>
     <link rel="stylesheet" href="style_hom.css" />
+</head>
+<body>
   <!-- Page transition overlay -->
   <div id="page-transition"></div>
  
- 
   <!-- Pill navbar -->
-      <div class="navbar-wrap">
-          <nav class="navbar">
-            <a href="Home.html" class="navbar-brand">
-              <img src="Augustine.university.logo.png" alt="AUI Crest" />
-              <span>AUI</span>
-            </a>
-            <ul class="navbar-links">
-              <li><a href="Home.html" class="active">Home</a></li>
-              <li><a href="/About/About.html">About</a></li>
-              <li class="dropdown-parent">
-                <a href="/Department/Department.html">Department</a>
-                <div class="dropdown-menu">
-                  <a href="/Department/Department.html#staff">Staff</a>
-                  <a href="/Department/Department.html#courses">Courses</a>
-                </div>
-              </li>
-              <li class="dropdown-parent">
-                <a href="portal.html" class="dropdown-toggle">
-                  Student Portal
-                </a>
-                <div class="dropdown-menu">
-                  <a href="portal.html#course-registration">Course Registration</a>
-                  <a href="portal.html#exam-result">Exam Result</a>
-                  <a href="portal.html#payment-receipts">Payment Receipts</a>
-                  <a href="portal.html#student-profile">Student Profile</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
+  <div class="navbar-wrap">
+    <nav class="navbar">
+      <a href="Home.html" class="navbar-brand">
+        <img src="Augustine.university.logo.png" alt="AUI Crest" />
+        <span>AUI</span>
+      </a>
+      
+      <!-- Mobile menu toggle button -->
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="navbar-links" id="navbarLinks">
+        <li><a href="Home.html" class="active">Home</a></li>
+        <li><a href="/About/About.html">About</a></li>
+        <li class="dropdown-parent">
+          <a href="#" onclick="return false">Department</a>
+          <div class="dropdown-menu">
+            <a href="/Department/Department.html">Staff</a>
+            <a href="/Course/Course.html">Courses</a>
+          </div>
+        </li>
+        <li>
+          <a href="/portal/portal.html">Student Portal</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
   <!-- Hero -->
   <section class="hero">
     <div class="hero-bg"><img src="WhatsApp Image 2024-08-29 at 4.48.19 PM.jpeg" alt="Faculty of Computing" srcset=""></div>
@@ -62,7 +64,7 @@
           <div class="dept-card-body">
             <h3>Computer Science</h3>
             <p>Explore the fundamentals of algorithms, data structures, and programming languages in our comprehensive Computer Science course.</p>
-             <a href="department.html" class="dept-card-button">B.Sc 4 Years · VIEW</a>
+             <button type="button" class="dept-card-button" onclick="openDeptModal('Computer Science', 'B.Sc 4 Years', 'Explore the fundamentals of algorithms, data structures, and programming languages in our comprehensive Computer Science course.', 'Minimum 5 O\'Level credits including English Language, Mathematics, Physics, and two other science subjects.', 'English, Mathematics, Physics, and one of Chemistry, Biology, or Computer Science.')">B.Sc 4 Years · VIEW</button>
           </div>
         </div>
         <div class="dept-card observe">
@@ -70,7 +72,7 @@
           <div class="dept-card-body">
             <h3>Information Technology</h3>
             <p>Highlight the key features of the Information Technology course in the faculty, bridging business and cutting-edge tech solutions.</p>
-             <a href="department.html" class="dept-card-button">B.Sc 4 Years · VIEW</a>
+             <button type="button" class="dept-card-button" onclick="openDeptModal('Information Technology', 'B.Sc 4 Years', 'Highlight the key features of the Information Technology course in the faculty, bridging business and cutting-edge tech solutions.', 'Minimum 5 O\'Level credits including English Language, Mathematics, Physics, and two other science subjects.', 'English, Mathematics, Physics, and one of Chemistry, Biology, or Computer Science.')">B.Sc 4 Years · VIEW</button>
           </div>
         </div>
         <div class="dept-card observe">
@@ -78,7 +80,7 @@
           <div class="dept-card-body">
             <h3>Cybersecurity</h3>
             <p>The course in the faculty offers an overview of cybersecurity principles, focusing on practical skills and real-world applications.</p>
-            <a href="department.html" class="dept-card-button">B.Sc 4 Years · VIEW</a>
+            <button type="button" class="dept-card-button" onclick="openDeptModal('Cybersecurity', 'B.Sc 4 Years', 'The course in the faculty offers an overview of cybersecurity principles, focusing on practical skills and real-world applications.', 'Minimum 5 O\'Level credits including English Language, Mathematics, Physics, and two other science subjects.', 'English, Mathematics, Physics, and one of Chemistry, Biology, or Computer Science.')">B.Sc 4 Years · VIEW</button>
           </div>
         </div>
       </div>
@@ -90,7 +92,7 @@
           <div class="dept-card-body">
             <h3>Software Engineering</h3>
             <p>Highlight the key features of the software engineering course in the faculty, from design principles to agile development practices.</p>
-             <a href="department.html" class="dept-card-button">B.Sc 4 Years · VIEW</a>
+             <button type="button" class="dept-card-button" onclick="openDeptModal('Software Engineering', 'B.Sc 4 Years', 'Highlight the key features of the software engineering course in the faculty, from design principles to agile development practices.', 'Minimum 5 O\'Level credits including English Language, Mathematics, Physics, and two other science subjects.', 'English, Mathematics, Physics, and one of Chemistry, Biology, or Computer Science.')">B.Sc 4 Years · VIEW</button>
           </div>
         </div>
         <div class="dept-card observe">
@@ -98,7 +100,7 @@
           <div class="dept-card-body">
             <h3>Data Science</h3>
             <p>Dive into data analytics, machine learning, and statistical modelling to extract meaningful insights and drive data-informed decisions.</p>
-             <a href="department.html" class="dept-card-button">B.Sc 4 Years · VIEW</a>
+             <button type="button" class="dept-card-button" onclick="openDeptModal('Data Science', 'B.Sc 4 Years', 'Dive into data analytics, machine learning, and statistical modelling to extract meaningful insights and drive data-informed decisions.', 'Minimum 5 O\'Level credits including English Language, Mathematics, Physics, and two other science subjects.', 'English, Mathematics, Physics, and one of Chemistry, Biology, or Computer Science.')">B.Sc 4 Years · VIEW</button>
           </div>
         </div>
       </div>
@@ -188,7 +190,6 @@
     // ── Page transition ──
     const overlay = document.getElementById('page-transition');
  
-    // Fade in on load (overlay starts visible, then hides)
     window.addEventListener('load', () => {
       requestAnimationFrame(() => {
         overlay.classList.add('hidden');
@@ -224,6 +225,55 @@
         setTimeout(() => inp.placeholder = 'Enter Your Email', 3000);
       }
     });
+
+    // ── Mobile Menu Toggle ──
+    function toggleMobileMenu() {
+      const navLinks = document.getElementById('navbarLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // ── Department Modal Functions ──
+    function openDeptModal(title, duration, overview, prerequisites, utme) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-duration').textContent = duration;
+      document.getElementById('modal-overview').textContent = overview;
+      document.getElementById('modal-prerequisites').textContent = prerequisites;
+      document.getElementById('modal-utme').textContent = utme;
+      
+      document.getElementById('dept-modal').classList.add('active');
+    }
+
+    function closeDeptModal() {
+      document.getElementById('dept-modal').classList.remove('active');
+    }
+
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('dept-modal');
+      if (e.target === modal) {
+        closeDeptModal();
+      }
+    });
   </script>
+
+  <!-- Department Overview Modal -->
+  <div id="dept-modal" class="dept-modal-overlay">
+    <div class="dept-modal-content">
+      <button type="button" class="dept-modal-close" onclick="closeDeptModal()">&times;</button>
+      <span id="modal-duration" class="modal-duration-tag"></span>
+      <h3 id="modal-title"></h3>
+      <div class="modal-section">
+        <h4>Course Overview</h4>
+        <p id="modal-overview"></p>
+      </div>
+      <div class="modal-section">
+        <h4>Prerequisites & O'Level Requirements</h4>
+        <p id="modal-prerequisites"></p>
+      </div>
+      <div class="modal-section">
+        <h4>UTME Subject Combinations</h4>
+        <p id="modal-utme"></p>
+      </div>
+    </div>
+  </div> 
 </body>
 </html>

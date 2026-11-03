@@ -23,9 +23,9 @@
           extend: {
             colors: {
               brand: {
-                crimson: "#800020", // Signature Maroon Crimson seen in AUI branding
+                crimson: "#800020",
                 crimsonHover: "#9c1837",
-                gold: "#D4AF37", // Accent gold
+                gold: "#D4AF37",
                 charcoal: "#2d2d2d",
                 slateGray: "#4b5563",
                 lightBg: "#f9fafb",
@@ -39,56 +39,55 @@
         },
       };
     </script>
-  <link rel="stylesheet" href="/About/style_abt.css" />
+    <link rel="stylesheet" href="/About/style_abt.css" />
   </head>
   <body
     class="bg-gray-50 text-brand-charcoal font-sans antialiased min-h-screen flex flex-col overflow-x-hidden"
   >
 
-        <!-- Desktop Navigation Menu (Matches Homepage layout closely) -->
-        <div class="navbar-wrap">
-          <nav class="navbar">
-            <a href="index.html" class="navbar-brand">
-              <img src="Augustine.university.logo.png" alt="AUI Crest" />
-              <span>AUI</span>
-            </a>
-            <ul class="navbar-links">
-              <li><a href="/Home/Home.html">Home</a></li>
-              <li><a href="/About/About.html" class="active">About</a></li>
-              <li class="dropdown-parent">
-                <a href="/Department/Department.html">Department</a>
-                <div class="dropdown-menu">
-                  <a href="/Department/Department.html#staff" class="block px-4 py-2">Staff</a>
-                  <a href="/Department/Department.html#courses" class="block px-4 py-2">Courses</a>
-                </div>
-              </li>
-              <li class="dropdown-parent">
-                <a href="/portal.html" class="inline-flex items-center gap-1">Student Portal</a>
-                <div class="dropdown-menu">
-                  <a href="/portal.html#course-registration" class="block px-4 py-2">Course Registration</a>
-                  <a href="/portal.html#exam-result" class="block px-4 py-2">Exam Result</a>
-                  <a href="/portal.html#payment-receipts" class="block px-4 py-2">Payment Receipts</a>
-                  <a href="/portal.html#student-profile" class="block px-4 py-2">Student Profile</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </div>
+    <!-- Desktop Navigation Menu -->
+    <div class="navbar-wrap">
+      <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+          <img src="Augustine.university.logo.png" alt="AUI Crest" />
+          <span>AUI</span>
+        </a>
 
-       
-    </header>
+        <!-- Mobile menu toggle button -->
+        <button id="mobile-menu-toggle-btn" class="mobile-menu-toggle md:hidden" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="navbar-links" id="navbarLinks">
+          <li><a href="/Home/Home.html">Home</a></li>
+          <li><a href="/About/About.html" class="active">About</a></li>
+          <li class="dropdown-parent">
+            <a href="#" onclick="return false">Department</a>
+            <div class="dropdown-menu">
+              <a href="/Department/Department.html" class="block px-4 py-2">Staff</a>
+              <a href="/Course/Course.html" class="block px-4 py-2">Courses</a>
+            </div>
+          </li>
+          <li>
+            <a href="/portal/portal.html">Student Portal</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
     <!-- MAIN CENTRAL CONTENT CONTAINER WITH TRANSITIONS -->
     <main
       id="about-section"
-      class="max-w-6xl mx-auto px-4 md:px-8 py-20 space-y-24 flex-grow"
+      class="max-w-6xl mx-auto px-4 md:px-8 py-20 pt-32 space-y-24 flex-grow w-full"
     >
-      <!-- SECTION: MEET THE DEAN (Direct matching to video 0:00 & 0:37 of ABOUT and 1 more page...) -->
+      <!-- SECTION: MEET THE DEAN -->
       <section
         id="dean"
         class="fade-in-on-scroll grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center"
       >
-        <!-- Portrait Column (Left) with the iconic Proffessor block styling -->
+        <!-- Portrait Column (Left) -->
         <div class="md:col-span-5 flex flex-col items-start relative group">
           <div
             class="w-full bg-gray-100 border border-gray-200 relative aspect-[4/5] md:aspect-square overflow-hidden shadow-lg rounded-t-2xl transition-transform duration-500 group-hover:scale-[1.02]"
@@ -99,13 +98,12 @@
               class="w-full h-full object-cover object-center"
               loading="lazy"
             />
-            <!-- Floating Ambient Border -->
             <div
               class="absolute inset-0 border-2 border-brand-gold/0 group-hover:border-brand-gold/40 transition-all duration-500 rounded-t-2xl"
             ></div>
           </div>
 
-          <!-- Signature Bold Crimson Block Label from Video -->
+          <!-- Signature Bold Crimson Block Label -->
           <div
             class="signature-red-block w-full text-white p-5 font-bold shadow-md bg-brand-crimson border-b-4 border-brand-gold rounded-b-2xl"
           >
@@ -154,7 +152,6 @@
             </p>
           </div>
 
-          <!-- Interactive Details Toggle -->
           <div class="pt-2">
             <button
               onclick="toggleDeanContactModal(true)"
@@ -167,10 +164,10 @@
         </div>
       </section>
 
-      <!-- SECTION: MEET THE SUB-DEAN (Direct matching to video 0:39 of ABOUT and 1 more page...) -->
+      <!-- SECTION: MEET THE SUB-DEAN -->
       <section
         id="subdean"
-        class="fade-in-on-scroll grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center pt-12 border-t border-gray-150"
+        class="fade-in-on-scroll grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center pt-12 border-t border-gray-200"
       >
         <!-- Portrait Column (Left) -->
         <div
@@ -179,7 +176,6 @@
           <div
             class="w-full bg-gray-100 border border-gray-200 relative aspect-[4/5] md:aspect-square overflow-hidden shadow-lg rounded-t-2xl transition-transform duration-500 group-hover:scale-[1.02]"
           >
-            <!--Portrait representing Dr. A.L. Kolapo -->
             <img
               src="SUB-DEAN.jpg"
               alt="Sub-Dean Dr. A.L. Kolapo"
@@ -191,7 +187,6 @@
             ></div>
           </div>
 
-          <!-- Signature Bold Crimson Block Label from Video -->
           <div
             class="signature-red-block w-full text-white p-5 font-bold shadow-md bg-brand-crimson border-b-4 border-brand-gold rounded-b-2xl"
           >
@@ -239,18 +234,26 @@
               schemes.
             </p>
           </div>
+          <div class="pt-2">
+            <button
+              onclick="toggleSubDeanContactModal(true)"
+              class="btn-transition inline-flex items-center space-x-2 text-xs font-bold text-brand-crimson hover:text-brand-gold uppercase tracking-wider py-2 border-b-2 border-brand-crimson hover:border-brand-gold"
+            >
+              <i class="fa-solid fa-address-book text-sm"></i>
+              <span>Contact & Academic Office Details</span>
+            </button>
+          </div>
         </div>
       </section>
 
-      <!-- SECTION: WELCOME ADDRESS (Direct matching to video 0:40 of ABOUT and 1 more page...) -->
+      <!-- SECTION: WELCOME ADDRESS  -->
       <section
         id="welcome-address"
-        class="fade-in-on-scroll pt-12 border-t border-gray-150"
+        class="fade-in-on-scroll pt-12 border-t border-gray-200"
       >
         <div
-          class="bg-white rounded-3xl border border-gray-200 p-8 md:p-12 shadow-xl relative overflow-hidden"
+          class="bg-white rounded-3xl border border-gray-200 p-6 md:p-12 shadow-xl relative overflow-hidden"
         >
-          <!-- Decorative Top Border Theme Strip -->
           <div
             class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-brand-crimson via-brand-gold to-brand-crimson"
           ></div>
@@ -272,7 +275,7 @@
                 class="text-gray-700 text-sm md:text-base leading-relaxed space-y-4 relative"
               >
                 <div
-                  class="absolute -top-8 -left-6 text-brand-crimson/10 text-9xl font-serif select-none pointer-events-none"
+                  class="absolute -top-8 -left-6 text-brand-crimson/10 text-9xl font-serif select-none pointer-events-none hidden sm:block"
                 >
                   “
                 </div>
@@ -299,9 +302,8 @@
               </div>
             </div>
 
-            <!-- Decorative Crest Card representing video layout -->
             <div
-              class="lg:col-span-4 bg-gray-50 border border-gray-150 p-8 rounded-2xl flex flex-col items-center justify-center text-center space-y-4"
+              class="lg:col-span-4 bg-gray-50 border border-gray-200 p-6 md:p-8 rounded-2xl flex flex-col items-center justify-center text-center space-y-4"
             >
               <div
                 class="w-16 h-16 rounded-full bg-brand-crimson/10 text-brand-crimson flex items-center justify-center text-2xl shadow-sm"
@@ -327,17 +329,16 @@
         </div>
       </section>
 
-      <!-- SECTION: ABOUT AUGUSTINE UNIVERSITY (Direct matching to video 0:42 of ABOUT and 1 more page...) -->
+      <!-- SECTION: ABOUT AUGUSTINE UNIVERSITY-->
       <section
         id="about-uni"
-        class="fade-in-on-scroll grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center pt-12 border-t border-gray-150"
+        class="fade-in-on-scroll grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center pt-12 border-t border-gray-200"
       >
         <!-- Campus Entrance Graphic (Left) -->
         <div class="md:col-span-5">
           <div
-            class="w-full bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-150 aspect-[4/3] relative group"
+            class="w-full bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[4/3] relative group"
           >
-          
             <img
               src="AUI.jpg"
               alt="Augustine University Campus Entrance"
@@ -347,34 +348,6 @@
             <div
               class="absolute inset-0 bg-brand-crimson/0 group-hover:bg-brand-crimson/10 transition-all duration-500 rounded-2xl pointer-events-none"
             ></div>
-             
-
-              
-              <!-- Header structure bar -->
-              <rect x="40" y="110" width="320" height="12" fill="#800020" />
-              <rect x="40" y="122" width="320" height="3" fill="#D4AF37" />
-
-              <!-- Signboard Header (Matches 0:42 video clip frame) -->
-              <rect
-                x="135"
-                y="145"
-                width="130"
-                height="42"
-                fill="#ffffff"
-                rx="3"
-                stroke="#800020"
-                stroke-width="1.5"
-              />
-              <text
-                x="200"
-                y="167"
-                font-family="Playfair Display"
-                font-weight="bold"
-                font-size="11"
-                fill="#800020"
-                text-anchor="middle"
-              >
-             
           </div>
         </div>
 
@@ -394,7 +367,6 @@
             society at large.
           </p>
           <div class="pt-2">
-            <!-- Gold-accent border-bottom button matching video frame 0:43 -->
             <button
               onclick="toggleUniDetailsModal(true)"
               class="btn-transition inline-flex items-center space-x-2 text-xs font-bold text-brand-crimson hover:text-brand-gold uppercase tracking-wider py-2 border-b-2 border-brand-crimson hover:border-brand-gold"
@@ -405,11 +377,10 @@
         </div>
       </section>
 
-      <!-- -->
-      <!-- SECTION: INQUIRIES & APPLICATIONS (Connect & Apply) -->
+      <!-- SECTION: INQUIRIES & APPLICATIONS -->
       <section
         id="connect-apply"
-        class="fade-in-on-scroll pt-12 border-t border-gray-150"
+        class="fade-in-on-scroll pt-12 border-t border-gray-200"
       >
         <div class="text-center max-w-2xl mx-auto mb-12">
           <span
@@ -429,14 +400,14 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          <!-- Card Left: Submit Questions / Inquiries -->
+          <!-- Card Left: Inquiries -->
           <div
-            class="bg-white rounded-3xl border border-gray-200 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            class="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
           >
             <div>
               <div class="flex items-center space-x-4 mb-6">
                 <div
-                  class="w-12 h-12 rounded-2xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center text-xl shadow-inner"
+                  class="w-12 h-12 rounded-2xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center text-xl shadow-inner flex-shrink-0"
                 >
                   <i class="fa-solid fa-paper-plane animate-pulse"></i>
                 </div>
@@ -452,13 +423,12 @@
                 </div>
               </div>
 
-              <!-- Inquiry Form -->
               <form
                 id="inquiry-form"
                 class="space-y-4"
                 onsubmit="handleInquirySubmit(event)"
               >
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label
                       class="block text-xs font-bold text-gray-500 uppercase mb-1.5"
@@ -529,9 +499,9 @@
             </div>
           </div>
 
-          <!-- Card Right: Start Admission Application -->
+          <!-- Card Right: Application -->
           <div
-            class="bg-white rounded-3xl border border-gray-200 p-8 shadow-md hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
+            class="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between"
           >
             <div
               class="absolute top-0 right-0 w-24 h-24 bg-brand-gold/10 rounded-bl-full pointer-events-none"
@@ -539,7 +509,7 @@
             <div>
               <div class="flex items-center space-x-4 mb-6">
                 <div
-                  class="w-12 h-12 rounded-2xl bg-brand-gold/15 text-brand-crimson flex items-center justify-center text-xl shadow-inner"
+                  class="w-12 h-12 rounded-2xl bg-brand-gold/15 text-brand-crimson flex items-center justify-center text-xl shadow-inner flex-shrink-0"
                 >
                   <i class="fa-solid fa-graduation-cap"></i>
                 </div>
@@ -555,13 +525,12 @@
                 </div>
               </div>
 
-              <!-- Application Form -->
               <form
                 id="application-form"
                 class="space-y-4"
                 onsubmit="handleApplicationSubmit(event)"
               >
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label
                       class="block text-xs font-bold text-gray-500 uppercase mb-1.5"
@@ -587,7 +556,7 @@
                     />
                   </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label
                       class="block text-xs font-bold text-gray-500 uppercase mb-1.5"
@@ -623,7 +592,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label
                       class="block text-xs font-bold text-gray-500 uppercase mb-1.5"
@@ -665,17 +634,15 @@
       </section>
     </main>
 
-    <!-- BOOKSHELF SEPARATOR IMAGE BANNER (Exactly as seen in ABOUT and 1 more page... 0:49 & HOME and 1 more page... 0:14) -->
+    <!-- BOOKSHELF SEPARATOR IMAGE BANNER -->
     <div
       class="w-full h-24 book-shelf-gradient relative flex items-center overflow-hidden border-t-4 border-b-4 border-brand-gold shadow-inner"
     >
-      <!-- SVG Bookshelf Representation of physical library banner -->
-     <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&q=80" alt="Augustine University Library" srcset="">
+      <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&q=80" alt="Augustine University Library" class="w-full h-full object-cover">
     </div>
-
-    <!-- -->
-    <!-- NEW CLEAN MINIMAL FOOTER -->
-    <footer class="bg-[#f9fafb] border-t border-gray-200 py-8 text-gray-500">
+    
+    <!-- CLEAN MINIMAL FOOTER -->
+    <footer class="bg-[#f9fafb] border-t border-gray-200 py-8 text-gray-500 w-full">
       <div
         class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs"
       >
@@ -685,22 +652,14 @@
           >
             <img src="Augustine.university.logo.png" alt="AUI Logo" class="w-full h-full object-contain" />
           </div>
-          <p class="font-medium">
+          <p class="font-medium text-center md:text-left">
             &copy; 2026 Augustine University Ilara-Epe. All rights reserved.
           </p>
         </div>
-        <div class="flex space-x-6 font-medium">
-          <a href="#" class="hover:text-brand-crimson transition-colors"
-            >Terms of Service</a
-          >
-          <a href="#" class="hover:text-brand-crimson transition-colors"
-            >Privacy Policy</a
-          >
-          <a
-            href="#connect-apply"
-            class="hover:text-brand-crimson transition-colors"
-            >Admissions Desk</a
-          >
+        <div class="flex flex-wrap justify-center gap-4 font-medium">
+          <a href="#" class="hover:text-brand-crimson transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-brand-crimson transition-colors">Privacy Policy</a>
+          <a href="#connect-apply" class="hover:text-brand-crimson transition-colors">Admissions Desk</a>
         </div>
       </div>
     </footer>
@@ -743,6 +702,52 @@
         <div class="mt-6">
           <button
             onclick="toggleDeanContactModal(false)"
+            class="w-full bg-brand-crimson hover:bg-brand-crimsonHover text-white font-bold uppercase tracking-wider text-xs py-3 rounded-xl btn-transition"
+          >
+            Close Details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE MODAL: SUBDEAN CREDENTIALS -->
+    <div
+      id="sub-dean-modal"
+      class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm transition-all duration-300"
+    >
+      <div
+        class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative border border-gray-100 transform scale-95 opacity-0 transition-all duration-300"
+        id="sub-dean-modal-content"
+      >
+        <button
+          onclick="toggleSubDeanContactModal(false)"
+          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <h3 class="font-serif text-2xl font-bold text-brand-crimson mb-4">
+          Academic & Office Profile
+        </h3>
+        <div class="space-y-4 text-sm text-gray-600">
+          <p>
+            <strong>Full Title:</strong> Dr. A.L. Kolapo
+          </p>
+          <p>
+            <strong>Official Designation:</strong> SubDean, Faculty of Computing
+          </p>
+          <p>
+            <strong>Primary Contact Address:</strong>
+            dean.computing@augustineuniversity.edu.ng
+          </p>
+          <p><strong>Office Hours:</strong> Mon - Fri, 9:00 AM - 4:00 PM</p>
+          <p>
+            <strong>Administrative Assistant Contact:</strong>
+            admin.computing@augustineuniversity.edu.ng
+          </p>
+        </div>
+        <div class="mt-6">
+          <button
+            onclick="toggleSubDeanContactModal(false)"
             class="w-full bg-brand-crimson hover:bg-brand-crimsonHover text-white font-bold uppercase tracking-wider text-xs py-3 rounded-xl btn-transition"
           >
             Close Details
@@ -821,7 +826,7 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
-              observer.unobserve(entry.target); // Trigger only once
+              observer.unobserve(entry.target);
             }
           });
         }, observerOptions);
@@ -830,52 +835,42 @@
         fadeElements.forEach((el) => observer.observe(el));
       });
 
-      // Header Background Scroll Transition
-      window.addEventListener("scroll", () => {
-        const header = document.getElementById("main-header");
-        if (window.scrollY > 40) {
-          header.classList.remove("bg-transparent", "py-4");
-          header.classList.add(
-            "bg-white/80",
-            "backdrop-blur-md",
-            "shadow-sm",
-            "py-2",
-          );
-        } else {
-          header.classList.remove(
-            "bg-white/80",
-            "backdrop-blur-md",
-            "shadow-sm",
-            "py-2",
-          );
-          header.classList.add("bg-transparent", "py-4");
-        }
-      });
+      // Mobile Menu Button Toggle Logic
+      const mobileMenuToggleBtn = document.getElementById("mobile-menu-toggle-btn");
+      const navbarLinks = document.getElementById("navbarLinks");
 
-      // Mobile Menu Button Logic
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuBtn.addEventListener("click", () => {
-        if (mobileMenu.classList.contains("hidden")) {
-          mobileMenu.classList.remove("hidden");
-          setTimeout(() => {
-            mobileMenu.classList.remove("scale-95", "opacity-0");
-            mobileMenu.classList.add("scale-100", "opacity-100");
-          }, 10);
-        } else {
-          mobileMenu.classList.remove("scale-100", "opacity-100");
-          mobileMenu.classList.add("scale-95", "opacity-0");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 300);
-        }
-      });
+      if (mobileMenuToggleBtn && navbarLinks) {
+        mobileMenuToggleBtn.addEventListener("click", () => {
+          navbarLinks.classList.toggle("active");
+          mobileMenuToggleBtn.classList.toggle("open");
+        });
+      }
 
       // Dean Modal Logic
       function toggleDeanContactModal(show) {
         const modal = document.getElementById("dean-modal");
         const modalContent = document.getElementById("dean-modal-content");
+        if (show) {
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+          setTimeout(() => {
+            modalContent.classList.remove("scale-95", "opacity-0");
+            modalContent.classList.add("scale-100", "opacity-100");
+          }, 10);
+        } else {
+          modalContent.classList.remove("scale-100", "opacity-100");
+          modalContent.classList.add("scale-95", "opacity-0");
+          setTimeout(() => {
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+          }, 300);
+        }
+      }
+
+      // SubDean Modal Logic
+      function toggleSubDeanContactModal(show) {
+        const modal = document.getElementById("sub-dean-modal");
+        const modalContent = document.getElementById("sub-dean-modal-content");
         if (show) {
           modal.classList.remove("hidden");
           modal.classList.add("flex");

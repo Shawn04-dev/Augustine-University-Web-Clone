@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Department- Faculty of Computing | Augustine University</title>
-    <link rel="stylesheet" href="/Department/style_dep.css"/>
+    <title>Department - Augustine University</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Playfair Display -->
     <link
@@ -16,6 +16,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="/Department/style_dep.css" />
+    <link rel="stylesheet" href="/About/style_abt.css" />
 
     <script>
       tailwind.config = {
@@ -23,9 +25,9 @@
           extend: {
             colors: {
               brand: {
-                crimson: "#800020", // Signature Maroon Crimson seen in AUI branding
+                crimson: "#800020",
                 crimsonHover: "#9c1837",
-                gold: "#D4AF37", // Accent gold
+                gold: "#D4AF37",
                 charcoal: "#2d2d2d",
                 slateGray: "#4b5563",
                 lightBg: "#f9fafb",
@@ -40,76 +42,77 @@
       };
     </script>
   </head>
-  
-  <body>
-    <!-- Hero -->
+  <body
+    class="bg-gray-50 text-brand-charcoal font-sans antialiased min-h-screen flex flex-col overflow-x-hidden"
+  >
+
+    <!-- Desktop Navigation Menu -->
     <div class="navbar-wrap">
       <nav class="navbar">
-        <a href="/Home/Home.html" class="navbar-brand">
-          <img src="/Home/Augustine.university.logo.png" alt="AUI Crest" />
-          <span>Augustine University</span>
+        <a href="index.html" class="navbar-brand">
+          <img src="Augustine.university.logo.png" alt="AUI Crest" />
+          <span>AUI</span>
         </a>
-        <ul class="navbar-links">
+
+        <!-- Mobile menu toggle button -->
+        <button id="mobile-menu-toggle-btn" class="mobile-menu-toggle md:hidden" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="navbar-links" id="navbarLinks">
           <li><a href="/Home/Home.html">Home</a></li>
           <li><a href="/About/About.html">About</a></li>
           <li class="dropdown-parent">
-            <a href="/Department/Department.html" class="active">Department</a>
+            <a href="#" class="active" onclick="return false">Department</a>
             <div class="dropdown-menu">
-              <a href="/Department/Department.html#staff">Staff</a>
-              <a href="/Department/Department.html#courses">Courses</a>
+              <a href="/Department/Department.html">Staff</a>
+              <a href="/Course/Course.html" class="block px-4 py-2">Courses</a>
             </div>
           </li>
-          <li class="dropdown-parent">
-            <a href="/portal.html" class="dropdown-toggle">Student Portal</a>
-            <div class="dropdown-menu">
-              <a href="/portal.html#course-registration">Course Registration</a>
-              <a href="/portal.html#exam-result">Exam Result</a>
-              <a href="/portal.html#payment-receipts">Payment Receipts</a>
-              <a href="/portal.html#student-profile">Student Profile</a>
-            </div>
+          <li>
+            <a href="/portal/portal.html">Student Portal</a>
           </li>
         </ul>
       </nav>
     </div>
 
-     <!-- MAIN CENTRAL CONTENT CONTAINER WITH TRANSITIONS -->
-    <main
-      id="about-section"
-      class="max-w-6xl mx-auto px-4 md:px-8 py-20 space-y-24 flex-grow"
-    >
-      <!-- SECTION: MEET THE DEAN (Direct matching to video 0:00 & 0:37 of ABOUT and 1 more page...) -->
+    <!-- MAIN CENTRAL CONTENT CONTAINER -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 md:px-8 pt-32 pb-16 space-y-20 w-full">
+      
+      <!-- SECTION: MEET THE DEAN -->
       <section
         id="dean"
         class="fade-in-on-scroll grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center"
       >
-        <!-- Portrait Column (Left) with the iconic Proffessor block styling -->
+        <!-- Portrait Column (Left) -->
         <div class="md:col-span-5 flex flex-col items-start relative group">
           <div
             class="w-full bg-gray-100 border border-gray-200 relative aspect-[4/5] md:aspect-square overflow-hidden shadow-lg rounded-t-2xl transition-transform duration-500 group-hover:scale-[1.02]"
           >
             <img
               src="IMG-20260519-WA0024.jpg"
-              alt="Mr. ABORISADE D. O."
+              alt="Dean Zacchaeus Oni Omogbadegun"
               class="w-full h-full object-cover object-center"
               loading="lazy"
             />
-            <!-- Floating Ambient Border -->
             <div
               class="absolute inset-0 border-2 border-brand-gold/0 group-hover:border-brand-gold/40 transition-all duration-500 rounded-t-2xl"
             ></div>
           </div>
 
-          <!-- Signature Bold Crimson Block Label from Video -->
+          <!-- Signature Bold Crimson Block Label -->
           <div
             class="signature-red-block w-full text-white p-5 font-bold shadow-md bg-brand-crimson border-b-4 border-brand-gold rounded-b-2xl"
           >
             <p
               class="text-[11px] text-brand-gold font-bold uppercase tracking-widest mb-1"
             >
-             Dr. D. OLANIYI 
+                DR. OLANIYI DADA
             </p>
             <p class="text-lg uppercase font-serif tracking-normal font-bold">
-                ABORISADE
+              ABORISADE
             </p>
           </div>
         </div>
@@ -120,12 +123,12 @@
             <h2
               class="font-serif text-3xl md:text-4xl font-bold text-brand-crimson tracking-tight"
             >
-              MEET THE HEAD OF DEPARTMENT
+              MEET THE DEAN
             </h2>
             <p
               class="text-xs font-semibold text-gray-500 uppercase tracking-widest"
             >
-              HEAD OF DEPARTMENT, FACULTY OF COMPUTING
+              DEAN OF THE FACULTY OF COMPUTING
             </p>
           </div>
 
@@ -133,14 +136,13 @@
             class="text-gray-700 text-sm md:text-base leading-relaxed space-y-4"
           >
             <p>
-              Dr. D. Olaniyi Aborisade is a PhD-holder in Computer Science with over a decade of teaching and research experience. He earned his degrees from FUNAAB, the University of Ibadan, and completed doctoral benchwork at Hochschule Furtwangen University, Germany. An active professional, he is a member of the CPN and NCS, having served as the NCS Ogun State Vice Chairman from 2017 to 2019.
+            Dr. Dada Olaniyi Aborisade is a distinguished scholar and lecturer in the field of computer science and information systems in Nigeria. He holds a Bachelor of Science (Bsc.) Degree in Mathematical Sciences (Computer Science option) from the University of Agriculture, Abeokuta, Nigeria, and a Master of Science (MSc) Degree from the University of Ibadan, Nigeria.
             </p>
             <p>
-            His research focuses on Cloud Information Security, Digital Forensics, and his current project, "A DNA-Based Model for Speaker Identification." With approximately 20 publications, he teaches core courses like Database Design, Operating Systems, and Programming. Currently, he serves as the Head of Department (HOD) for the Faculty of Computing at Augustine University.
+             He completed his PhD in Computer Science at the University of Ibadan, Nigeria, in 2017. Dr. Aborisade has over ten years of teaching and research experience, with a total of twenty publications in both local and international conferences and journals. His research interests include Cloud Information Security, Digital Forensics, and Systems Survivability. He has also contributed to the AI4PEP initiative, focusing on digital transformation and cybersecurity readiness in public and health sectors.
             </p>
           </div>
 
-          <!-- Interactive Details Toggle -->
           <div class="pt-2">
             <button
               onclick="toggleDeanContactModal(true)"
@@ -153,112 +155,177 @@
         </div>
       </section>
 
-      <!-- SECTION: STAFF PROFILES -->
-      <section id="staff" class="fade-in-on-scroll">
-        <div class="space-y-5">
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#800020]">
-              OUR TEAM
-            </p>
-            <h2 class="font-serif text-3xl font-bold text-[#1a1a1a] mt-3">
-              Department Staff
-            </h2>
-          </div>
-            <div class="staff-grid" id="staffGrid">
-              <div class="staff-card">
-                <img src="JohnBosco.jpg" alt="  Mr. Agbaegbu JohnBosco" />
-                <h3>Mr. Agbaegbu JohnBosco</h3>
+      <!-- Main Staff Carousel Section -->
+      <section class="space-y-6 py-6 w-full relative">
+        <div class="text-center space-y-2">
+          <h2 class="font-serif text-2xl md:text-3xl font-bold text-brand-crimson">DEPARTMENT STAFF</h2>
+          <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest">FACULTY MEMBERS & ACADEMIC OFFICERS</p>
+        </div>
+
+        <div class="carousel-wrapper relative">
+          <!-- Desktop Arrow Buttons (Visible on PC and Monitor Screens) -->
+          <button class="carousel-arrow carousel-arrow-left" id="prevBtn" aria-label="Scroll left">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="carousel-arrow carousel-arrow-right" id="nextBtn" aria-label="Scroll right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <div class="carousel py-4" id="staffCarousel">
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="JohnBosco.jpg" alt="Mr. Agbaegbu JohnBosco" />
+                <h2>Mr. Agbaegbu JohnBosco</h2>
                 <p>Lecturer II</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
                 <img src="Rufai.jpg" alt="Mr. Rufai Adewole" />
-                <h3>Mr. Rufai Adewole</h3>
+                <h2>Mr. Rufai Adewole</h2>
                 <p>Visiting Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
+            </div>
+
+            <div class="staff-card scroll-start">
+              <div class="staff-inner-box">
                 <img src="Akinmerese.jpg" alt="Dr. Akinmerese Ebenezer" />
-                <h3>Dr. Akinmerese Ebenezer</h3>
+                <h2>Dr. Akinmerese Ebenezer</h2>
                 <p>Senior Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Ibitola.jpg" alt="Mr. Ibitola Ayobami" />
-                <h3>Mr. Ibitola Ayobami</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Ibitola.jpg" alt="Mr. Ibitola Ayobami" loading="lazy" />
+                <h2>Mr. Ibitola Ayobami</h2>
                 <p>Asst. Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Akinyemi.jpg" alt="Prof. Ibidapo Akinyemi" />
-                <h3>Prof. Ibidapo Akinyemi</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Akinyemi.jpg" alt="Prof. Ibidapo Akinyemi" loading="lazy" />
+                <h2>Prof. Ibidapo Akinyemi</h2>
                 <p>Senior Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Omisore.jpg" alt="Mr. Omisore Ademola" />
-                <h3>Mr. Omisore Ademola </h3>
-                <p>Lecturer II</p>
-                <button class="view-profile-btn">View Profile</button>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Omisore.jpg" alt="Mr. Omisore Ademola" loading="lazy" />
+                <h2>Mr. Omisore Ademola</h2>
+                <p>Designer</p>
               </div>
-              <div class="staff-card">
-                <img src="Agagu.jpg" alt="Ms. Agagu Modupe" />
-                <h3>Ms. Agagu Modupe</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Agagu.jpg" alt="Ms. Agagu Modupe" loading="lazy" />
+                <h2>Ms. Agagu Modupe</h2>
                 <p>Asst. Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Ogunbawo.jpg" alt="Dr. Ogunbawo" />
-                <h3>Dr. Ogunbawo Afolakemi</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Ogunbawo.jpg" alt="Dr. Ogunbawo Afolakemi" loading="lazy" />
+                <h2>Dr. Ogunbawo Afolakemi</h2>
                 <p>Adjunct Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Egume.jpg" alt="Mr. Egume Onome" />
-                <h3>Mr. Egume Onome</h3>
-                <p>Lecturer II</p>
-                <button class="view-profile-btn">View Profile</button>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Egume.jpg" alt="Mr. Egume Onome" loading="lazy" />
+                <h2>Mr. Egume Onome</h2>
+                <p>Adjunct Lecturer</p>
               </div>
-              <div class="staff-card">
-                <img src="Ayo.jpg" alt="Dr. Ayo Femi Emmanuel" />
-                <h3>Dr. Ayo Femi Emmanuel</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Ayo.jpg" alt="Dr. Ayo Femi Emmanuel" loading="lazy" />
+                <h2>Dr. Ayo Femi Emmanuel</h2>
                 <p>Lecturer I</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Abel.jpg" alt="Mr. Owolabi Abe" />
-                <h3>Mr. Owolabi Abel</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Abel.jpg" alt="Mr. Owolabi Abel" loading="lazy" />
+                <h2>Mr. Owolabi Abel</h2>
                 <p>Asst. Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Gbenga.jpg" alt="Dr. Ogunsanwo Gbenga" />
-                <h3>Dr. Ogunsanwo Gbenga</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Gbenga.jpg" alt="Dr. Ogunsanwo Gbenga" loading="lazy" />
+                <h2>Dr. Ogunsanwo Gbenga</h2>
                 <p>Visiting Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Adediran.jpg" alt="Dr. Adeniran Adefemi" />
-                <h3>Dr. Adeniran Adefemi</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Adediran.jpg" alt="Dr. Adeniran Adefemi" loading="lazy" />
+                <h2>Dr. Adeniran Adefemi</h2>
                 <p>Adjunct Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Alao.jpg" alt="Dr. Mogbademu Sanwo " />
-                <h3>Dr. Mogbademu Sanwo </h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Alao.jpg" alt="Dr. Mogbademu Sanwo" loading="lazy" />
+                <h2>Dr. Mogbademu Sanwo</h2>
                 <p>Visiting Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
-              <div class="staff-card">
-                <img src="Akinola.jpg" alt="Mr. Akinola James Olufemi" />
-                <h3>Mr. Akinola James Olufemi</h3>
+            </div>
+
+            <div class="staff-card">
+              <div class="staff-inner-box">
+                <img src="Akinola.jpg" alt="Mr. Akinola James Olufemi" loading="lazy" />
+                <h2>Mr. Akinola James Olufemi</h2>
                 <p>Part Time Lecturer</p>
-                <button class="view-profile-btn">View Profile</button>
               </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- INTERACTIVE MODAL: DEAN CREDENTIALS -->
+    </main>
+
+    <!-- BOOKSHELF SEPARATOR IMAGE BANNER -->
+    <div
+      class="banner h-24 book-shelf-gradient relative flex items-center overflow-hidden border-t-4 border-b-4 border-brand-gold shadow-inner mt-12 w-full"
+    >
+      <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&q=80" alt="Augustine University Library" class="w-full h-full object-cover">
+    </div>
+    
+    <!-- CLEAN FOOTER -->
+    <footer class="w-full bg-[#f9fafb] border-t border-gray-200 py-8 text-gray-500 mt-auto">
+      <div
+        class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs"
+      >
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 p-0.5 flex items-center justify-center">
+            <img src="Augustine.university.logo.png" alt="AUI Logo" class="w-full h-full object-contain" />
+          </div>
+          <p class="font-medium text-center md:text-left">
+            &copy; 2026 Augustine University Ilara-Epe. All rights reserved.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 font-medium">
+          <a href="#" class="hover:text-brand-crimson transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-brand-crimson transition-colors">Privacy Policy</a>
+          <a href="#connect-apply" class="hover:text-brand-crimson transition-colors">Admissions Desk</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE MODAL: DEAN CREDENTIALS -->
     <div
       id="dean-modal"
       class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm transition-all duration-300"
@@ -278,14 +345,14 @@
         </h3>
         <div class="space-y-4 text-sm text-gray-600">
           <p>
-            <strong>Full Title:</strong> Dr. D. Olaniyi Aborisade, PhD
+            <strong>Full Title:</strong> Dr. Dada Olaniyi Aborisade
           </p>
           <p>
-            <strong>Official Designation:</strong> Head of Department, Faculty of Computing
+            <strong>Official Designation:</strong> Dean, Faculty of Computing
           </p>
           <p>
             <strong>Primary Contact Address:</strong>
-            hod.computing@augustineuniversity.edu.ng
+            dean.computing@augustineuniversity.edu.ng
           </p>
           <p><strong>Office Hours:</strong> Mon - Fri, 9:00 AM - 4:00 PM</p>
           <p>
@@ -303,10 +370,11 @@
         </div>
       </div>
     </div>
-<script>
 
-     // Scroll Animation Observer Setup
+    <!-- SCRIPTS -->
+    <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Scroll Animation Observer Setup
         const observerOptions = {
           root: null,
           threshold: 0.1,
@@ -317,36 +385,39 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
-              observer.unobserve(entry.target); // Trigger only once
+              observer.unobserve(entry.target);
             }
           });
         }, observerOptions);
 
         const fadeElements = document.querySelectorAll(".fade-in-on-scroll");
         fadeElements.forEach((el) => observer.observe(el));
-      });
 
- // Header Background Scroll Transition
-      window.addEventListener("scroll", () => {
-        const header = document.getElementById("main-header");
-        if (window.scrollY > 40) {
-          header.classList.remove("bg-transparent", "py-4");
-          header.classList.add(
-            "bg-white/80",
-            "backdrop-blur-md",
-            "shadow-sm",
-            "py-2",
-          );
-        } else {
-          header.classList.remove(
-            "bg-white/80",
-            "backdrop-blur-md",
-            "shadow-sm",
-            "py-2",
-          );
-          header.classList.add("bg-transparent", "py-4");
+        // Carousel Arrow Navigation Logic for PC/Monitors
+        const carousel = document.getElementById("staffCarousel");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        if (carousel && prevBtn && nextBtn) {
+          prevBtn.addEventListener("click", () => {
+            carousel.scrollBy({ left: -300, behavior: "smooth" });
+          });
+          nextBtn.addEventListener("click", () => {
+            carousel.scrollBy({ left: 300, behavior: "smooth" });
+          });
         }
       });
+
+      // Mobile Menu Toggle Logic
+      const mobileMenuToggleBtn = document.getElementById("mobile-menu-toggle-btn");
+      const navbarLinks = document.getElementById("navbarLinks");
+
+      if (mobileMenuToggleBtn && navbarLinks) {
+        mobileMenuToggleBtn.addEventListener("click", () => {
+          navbarLinks.classList.toggle("active");
+          mobileMenuToggleBtn.classList.toggle("open");
+        });
+      }
 
       // Dean Modal Logic
       function toggleDeanContactModal(show) {
@@ -368,7 +439,6 @@
           }, 300);
         }
       }
-
-</script>
-    </body>
+    </script>
+  </body>
 </html>

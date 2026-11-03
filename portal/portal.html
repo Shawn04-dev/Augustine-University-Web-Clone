@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal - Augustine University</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/portal/style_por.css" />
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                crimson: "#800020",
+                crimsonHover: "#9c1837",
+                gold: "#D4AF37",
+                charcoal: "#2d2d2d",
+                slateGray: "#4b5563",
+                lightBg: "#f9fafb",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="portal-body bg-gray-50 text-brand-charcoal font-sans antialiased min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- Pill Navbar -->
+    <div class="navbar-wrap">
+      <nav class="navbar">
+        <a href="/Home/Home.html" class="navbar-brand">
+          <img src="Augustine.university.logo.png" alt="AUI Crest" />
+        </a>
+
+        <!-- Mobile menu toggle button -->
+        <button id="mobile-menu-toggle-btn" class="mobile-menu-toggle md:hidden" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="navbar-links" id="navbarLinks">
+          <li><a href="/Home/Home.html">Home</a></li>
+          <li><a href="/About/About.html">About</a></li>
+          <li class="dropdown-parent">
+            <a href="#" onclick="return false">Department</a>
+            <div class="dropdown-menu">
+              <a href="/Department/Department.html">Staff</a>
+              <a href="/Course/Course.html">Courses</a>
+            </div>
+          </li>
+          <li>
+            <a href="/portal/portal.html" class="active">Student Portal</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Portal Container -->
+    <main class="portal-main-container flex-grow max-w-7xl mx-auto px-4 md:px-8 pt-32 pb-16 w-full">
+      
+      <!-- Portal Header -->
+      <header class="portal-header text-center max-w-2xl mx-auto mb-12">
+        <p class="portal-subtitle text-xs font-bold text-brand-gold uppercase tracking-[0.25em]">STUDENT DASHBOARD HUB</p>
+        <h1 class="portal-title font-serif text-3xl md:text-4xl font-bold text-brand-crimson mt-2">AUI Student Portal</h1>
+        <p class="portal-description text-gray-600 text-sm mt-3">Access your personal student account, manage course registrations, view exam records, and verify fee receipts.</p>
+      </header>
+
+      <!-- Portal Grid Layout: Login Box + Quick Hub Modules -->
+      <div class="portal-grid grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Column: Student Personal Account Login Card -->
+        <section class="portal-login-card lg:col-span-5 bg-white border border-gray-200 rounded-3xl p-6 md:p-8 shadow-md">
+          <div class="login-card-header flex items-center space-x-4 pb-6 mb-6 border-b border-gray-100">
+            <div class="login-icon-badge w-12 h-12 rounded-2xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center text-xl">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+              <h2 class="login-card-title font-serif font-bold text-gray-800 text-lg">Student Login</h2>
+              <p class="login-card-subtitle text-xs text-gray-500">Sign in to your personal portal account</p>
+            </div>
+          </div>
+
+          <form class="login-form space-y-4" onsubmit="handlePortalLogin(event)">
+            <div class="form-group space-y-1.5">
+              <label for="matricNumber" class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Matriculation Number / Email</label>
+              <div class="input-with-icon relative">
+                <i class="fa-solid fa-user input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <input type="text" id="matricNumber" placeholder="e.g. AU202401134" required class="portal-input w-full text-sm bg-gray-50 border border-gray-200 pl-11 pr-4 py-3 rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-crimson focus:bg-white transition-all" />
+              </div>
+            </div>
+
+            <div class="form-group space-y-1.5">
+              <label for="portalPassword" class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Password</label>
+              <div class="input-with-icon relative">
+                <i class="fa-solid fa-key input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <input type="password" id="portalPassword" placeholder="Enter your secure password" required class="portal-input w-full text-sm bg-gray-50 border border-gray-200 pl-11 pr-4 py-3 rounded-xl focus:outline-none focus:ring-1 focus:ring-brand-crimson focus:bg-white transition-all" />
+              </div>
+            </div>
+
+            <div class="form-actions-row flex items-center justify-between text-xs pt-1">
+              <label class="remember-me flex items-center space-x-2 text-gray-600 cursor-pointer">
+                <input type="checkbox" class="rounded border-gray-300 text-brand-crimson focus:ring-brand-crimson" /> 
+                <span>Remember device</span>
+              </label>
+              <a href="#" class="forgot-password-link text-brand-crimson font-semibold hover:underline">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="portal-login-btn w-full bg-brand-crimson hover:bg-brand-crimsonHover text-white font-bold uppercase tracking-wider text-xs py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center space-x-2 mt-4">
+              <span>Sign In to Portal</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </form>
+        </section>
+
+        <!-- Right Column: Portal Services Hub (Quick Access Links) -->
+        <div class="portal-services-col lg:col-span-7 space-y-4">
+          <h2 class="services-heading font-serif text-2xl font-bold text-gray-800">Portal Services</h2>
+          
+          <div class="services-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Service 1: Course Registration -->
+            <a href="#" class="service-card bg-white border border-gray-200 p-5 rounded-2xl flex flex-col justify-between hover:border-brand-crimson hover:shadow-lg transition-all">
+              <div class="service-icon-box w-10 h-10 rounded-xl bg-brand-crimson/10 text-brand-crimson flex items-center justify-center text-base mb-4">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <div>
+                <h3 class="service-title font-serif font-bold text-gray-800 text-base mb-1">Course Registration</h3>
+                <p class="service-desc text-xs text-gray-500 leading-relaxed">Register semester modules and view credit unit loads.</p>
+              </div>
+            </a>
+
+            <!-- Service 2: Exam Results -->
+            <a href="#" class="service-card bg-white border border-gray-200 p-5 rounded-2xl flex flex-col justify-between hover:border-brand-crimson hover:shadow-lg transition-all">
+              <div class="service-icon-box w-10 h-10 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center text-base mb-4">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div>
+                <h3 class="service-title font-serif font-bold text-gray-800 text-base mb-1">Exam Results</h3>
+                <p class="service-desc text-xs text-gray-500 leading-relaxed">Check semester grades, transcripts, and GPA summaries.</p>
+              </div>
+            </a>
+
+            <!-- Service 3: Payment Receipts -->
+            <a href="#" class="service-card bg-white border border-gray-200 p-5 rounded-2xl flex flex-col justify-between hover:border-brand-crimson hover:shadow-lg transition-all">
+              <div class="service-icon-box w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-base mb-4">
+                <i class="fa-solid fa-receipt"></i>
+              </div>
+              <div>
+                <h3 class="service-title font-serif font-bold text-gray-800 text-base mb-1">Payment Receipts</h3>
+                <p class="service-desc text-xs text-gray-500 leading-relaxed">Verify school fees, accommodation, and acceptance payments.</p>
+              </div>
+            </a>
+
+            <!-- Service 4: Student Profile -->
+            <a href="#" class="service-card bg-white border border-gray-200 p-5 rounded-2xl flex flex-col justify-between hover:border-brand-crimson hover:shadow-lg transition-all">
+              <div class="service-icon-box w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center text-base mb-4">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+              <div>
+                <h3 class="service-title font-serif font-bold text-gray-800 text-base mb-1">Student Profile</h3>
+                <p class="service-desc text-xs text-gray-500 leading-relaxed">Manage bio-data, department info, and contact details.</p>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- BOOKSHELF SEPARATOR IMAGE BANNER -->
+    <div
+      class="banner h-24 book-shelf-gradient relative flex items-center overflow-hidden border-t-4 border-b-4 border-brand-gold shadow-inner mt-12 w-full"
+    >
+      <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&q=80" alt="Augustine University Library" class="w-full h-full object-cover">
+    </div>
+    
+    <!-- CLEAN FOOTER -->
+    <footer class="w-full bg-[#f9fafb] border-t border-gray-200 py-8 text-gray-500">
+      <div
+        class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs"
+      >
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 p-0.5 flex items-center justify-center">
+            <img src="Augustine.university.logo.png" alt="AUI Logo" class="w-full h-full object-contain" />
+          </div>
+          <p class="font-medium text-center md:text-left">
+            &copy; 2026 Augustine University Ilara-Epe. All rights reserved.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 font-medium">
+          <a href="#" class="hover:text-brand-crimson transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-brand-crimson transition-colors">Privacy Policy</a>
+          <a href="#matricNumber" class="hover:text-brand-crimson transition-colors">Student Support</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Navigation & Login Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenuToggleBtn = document.getElementById("mobile-menu-toggle-btn");
+        const navbarLinks = document.getElementById("navbarLinks");
+
+        if (mobileMenuToggleBtn && navbarLinks) {
+          mobileMenuToggleBtn.addEventListener("click", () => {
+            navbarLinks.classList.toggle("active");
+            mobileMenuToggleBtn.classList.toggle("open");
+          });
+        }
+      });
+
+      function handlePortalLogin(e) {
+        e.preventDefault();
+        const matric = document.getElementById("matricNumber").value;
+        alert(`Authenticating session for student: ${matric}... (Redirecting to student dashboard)`);
+      }
+    </script>
+  </body>
+</html>
